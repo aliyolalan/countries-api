@@ -50,9 +50,9 @@ export default function Countries() {
 
   return (
     <div className="container">
-      <div className="container flex justify-between items-center">
+      <div className="container flex justify-between items-center mb-[47px]">
         <SearchInput
-          placeholder="Search countries..."
+          placeholder="Search for a country..."
           onChangeHandler={onSearchChangeHandler}
         />
         <SelectFilter onChangeHandler={onSelectChangeHandler} />
