@@ -1,7 +1,11 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 import Countries from "./containers/Countries";
-import Home from "./containers/Home";
 import { CountryDetail } from "./containers/CountryDetail.jsx";
 import Header from "./components/Header.jsx";
 import { Fragment } from "react";
@@ -13,7 +17,7 @@ function App() {
         <Header />
         <div className="container mx-auto">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Navigate to="/countries" />} />
             <Route path="/countries" element={<Countries />} />
             <Route path="/countries/:countryID" element={<CountryDetail />} />
           </Routes>
