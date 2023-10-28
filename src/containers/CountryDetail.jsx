@@ -11,7 +11,7 @@ export function CountryDetail() {
   };
 
   useEffect(() => {
-    getCountries().then(() => console.log("All country data fetched."));
+    getCountries().then(() => console.log());
   }, []);
 
   const singleCountryData = countryData.filter(
