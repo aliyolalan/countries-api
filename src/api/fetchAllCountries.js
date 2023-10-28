@@ -11,6 +11,7 @@ export async function fetchAllCountries() {
         return {
           countryKey: country.cca3,
           countryName: country.name.common,
+          nativeName: country.name.nativeName,
           countryFlag: country.flags.svg,
           countryPopulation: country.population,
           countryCapital: country.capital,
