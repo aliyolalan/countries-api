@@ -18,7 +18,7 @@ export default function Countries() {
   };
 
   useEffect(() => {
-    getCountries().then(() => console.log("All country data fetched."));
+    getCountries().then(() => console.log());
   }, []);
 
   // Search input operations...
