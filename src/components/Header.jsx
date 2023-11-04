@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
-  const [theme, setTheme] = useState("Dark Theme");
+  const [theme, setTheme] = useState('Dark Theme');
   const onThemeChangeHandler = () => {
-    const newThemeSetting =
-      theme === "Dark Theme" ? "Light Theme" : "Dark Theme";
+    const newThemeSetting = theme === 'Dark Theme' ? 'Light Theme' : 'Dark Theme';
     setTheme(newThemeSetting);
   };
 

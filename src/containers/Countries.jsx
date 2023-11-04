@@ -1,14 +1,14 @@
-import { CountryListAnother } from "../components/CountryListAnother.jsx";
-import { useEffect, useState } from "react";
-import { fetchAllCountries } from "../api/fetchAllCountries.js";
-import { SearchInput } from "../components/SearchInput.jsx";
-import { SelectFilter } from "../components/SelectFilter.jsx";
+import { useEffect, useState } from 'react';
+import { fetchAllCountries } from '../api/fetchAllCountries.js';
+import { CountryListAnother } from '../components/CountryListAnother.jsx';
+import { SearchInput } from '../components/SearchInput.jsx';
+import { SelectFilter } from '../components/SelectFilter.jsx';
 
 export default function Countries() {
   const [countryData, setCountryData] = useState([]);
   const [filteredCountry, setFilteredCountry] = useState([]);
-  const [searchField, setSearchField] = useState("");
-  const [selectedRegion, setSelectedRegion] = useState("");
+  const [searchField, setSearchField] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('');
   const [filteredCountryRegion, setFilteredCountryRegion] = useState([]);
 
   // Fetch all countries...
@@ -45,16 +45,14 @@ export default function Countries() {
     const newSelectedCountryRegion = filteredCountry.filter((countryItem) => {
       return countryItem.countryRegion.includes(selectedRegion);
     });
+
     setFilteredCountryRegion(newSelectedCountryRegion);
   }, [filteredCountry, selectedRegion]);
 
   return (
     <div className="container">
       <div className="container flex justify-between items-center mb-[47px]">
-        <SearchInput
-          placeholder="Search for a country..."
-          onChangeHandler={onSearchChangeHandler}
-        />
+        <SearchInput placeholder="Search for a country..." onChangeHandler={onSearchChangeHandler} />
         <SelectFilter onChangeHandler={onSelectChangeHandler} />
       </div>
       <CountryListAnother countryDataForList={filteredCountryRegion} />

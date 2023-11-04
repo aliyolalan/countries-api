@@ -1,14 +1,9 @@
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes,
-  Navigate,
-} from "react-router-dom";
-import "./App.css";
-import Countries from "./containers/Countries";
-import { CountryDetail } from "./containers/CountryDetail.jsx";
-import Header from "./components/Header.jsx";
-import { Fragment } from "react";
+import { Fragment } from 'react';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import Header from './components/Header.jsx';
+import Countries from './containers/Countries';
+import { CountryDetail } from './containers/CountryDetail.jsx';
 
 function App() {
   return (

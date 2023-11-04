@@ -1,7 +1,7 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { fetchAllCountries } from "../api/fetchAllCountries.js";
-import { populationValueFormat } from "../utils/numberFormat.js";
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { fetchAllCountries } from '../api/fetchAllCountries.js';
+import { populationValueFormat } from '../utils/numberFormat.js';
 
 export function CountryDetail() {
   const [countryData, setCountryData] = useState([]);
@@ -18,9 +18,7 @@ export function CountryDetail() {
     getCountries().then(() => console.log());
   }, []);
 
-  const singleCountryData = countryData.filter(
-    (countryItem) => countryItem.countryKey === countryID,
-  );
+  const singleCountryData = countryData.filter((countryItem) => countryItem.countryKey === countryID);
 
   // Selected country's border countries
   const borderCountries = countryData
@@ -32,8 +30,7 @@ export function CountryDetail() {
   };
 
   // Country language lister.
-  const languageLister = (value) =>
-    Object.values(value).toString().split(",").join(", ");
+  const languageLister = (value) => Object.values(value).toString().split(',').join(', ');
 
   // Country currency name.
   const countryCurrency = countryData
@@ -68,39 +65,22 @@ export function CountryDetail() {
       <div className="max-w-7xl mx-auto">
         {singleCountryData.map((countryItem, countryIndex) => (
           <div className="flex items-center justify-between" key={countryIndex}>
-            <img
-              className="max-w-[555px] h-auto"
-              src={countryItem.countryFlag}
-              alt={countryItem.countryName}
-            />
+            <img className="max-w-[555px] h-auto" src={countryItem.countryFlag} alt={countryItem.countryName} />
             <div className="max-w-[571px] w-full">
               <div>
-                <h2 className="text-[32px] font-extrabold leading-[32px] mb-[33px]">
-                  {countryItem.countryName}
-                </h2>
+                <h2 className="text-[32px] font-extrabold leading-[32px] mb-[33px]">{countryItem.countryName}</h2>
                 <div className="flex flex-col flex-wrap h-[147px]">
+                  <div className="text-base leading-[16px] mb-[13px]">Native Name: {countryNativeName}</div>
                   <div className="text-base leading-[16px] mb-[13px]">
-                    Native Name: {countryNativeName}
+                    Population: {formatPopulation(countryItem.countryPopulation)}
                   </div>
-                  <div className="text-base leading-[16px] mb-[13px]">
-                    Population:{" "}
-                    {formatPopulation(countryItem.countryPopulation)}
-                  </div>
-                  <div className="text-base leading-[16px] mb-[13px]">
-                    Region: {countryItem.countryRegion}
-                  </div>
-                  <div className="text-base leading-[16px] mb-[13px]">
-                    Sub Region: {countryItem.countrySubRegion}
-                  </div>
-                  <div className="text-base leading-[16px] mb-[13px]">
-                    Capital: {countryItem.countryCapital}
-                  </div>
+                  <div className="text-base leading-[16px] mb-[13px]">Region: {countryItem.countryRegion}</div>
+                  <div className="text-base leading-[16px] mb-[13px]">Sub Region: {countryItem.countrySubRegion}</div>
+                  <div className="text-base leading-[16px] mb-[13px]">Capital: {countryItem.countryCapital}</div>
                   <div className="text-base leading-[16px] mb-[13px]">
                     Top Level Domain: {countryItem.countryTopLevelDomain}
                   </div>
-                  <div className="text-base leading-[16px] mb-[13px]">
-                    Currencies: {countryCurrencyName}
-                  </div>
+                  <div className="text-base leading-[16px] mb-[13px]">Currencies: {countryCurrencyName}</div>
                   <div className="text-base leading-[16px] mb-[13px]">
                     Languages: {languageLister(countryItem.countryLanguage)}
                   </div>
