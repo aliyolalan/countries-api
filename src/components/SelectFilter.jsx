@@ -7,8 +7,7 @@ export function SelectFilter({ onChangeHandler }) {
         className="w-[200px] h-[56px] bg-[#2B3743] text-white text-sm px-6 py-[18px] outline-none"
         name="selectRegion"
         defaultValue=""
-        onChange={onChangeHandler}
-      >
+        onChange={onChangeHandler}>
         <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Asia">Asia</option>

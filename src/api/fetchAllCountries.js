@@ -7,7 +7,7 @@ export async function fetchAllCountries() {
     if (response.ok) {
       const data = await response.json();
 
-      const countriesData = data.map((country) => {
+      const countriesData = data.map(country => {
         return {
           countryKey: country.cca3,
           countryName: country.name.common,

@@ -18,24 +18,24 @@ export function CountryDetail() {
     getCountries().then(() => console.log());
   }, []);
 
-  const singleCountryData = countryData.filter((countryItem) => countryItem.countryKey === countryID);
+  const singleCountryData = countryData.filter(countryItem => countryItem.countryKey === countryID);
 
   // Selected country's border countries
   const borderCountries = countryData
-    .filter((countryItem) => countryItem.countryKey === countryID)
-    .map((countryItem) => countryItem.borderCountries);
+    .filter(countryItem => countryItem.countryKey === countryID)
+    .map(countryItem => countryItem.borderCountries);
 
-  const formatPopulation = (value) => {
+  const formatPopulation = value => {
     return populationValueFormat(value);
   };
 
   // Country language lister.
-  const languageLister = (value) => Object.values(value).toString().split(',').join(', ');
+  const languageLister = value => Object.values(value).toString().split(',').join(', ');
 
   // Country currency name.
   const countryCurrency = countryData
-    .filter((countryItem) => countryItem.countryKey === countryID)
-    .map((countryItem) => countryItem.countryCurrencies);
+    .filter(countryItem => countryItem.countryKey === countryID)
+    .map(countryItem => countryItem.countryCurrencies);
 
   let countryCurrencyName;
   if (countryCurrency[0]) {
@@ -45,8 +45,8 @@ export function CountryDetail() {
 
   // Country native name.
   const countryNative = countryData
-    .filter((countryItem) => countryItem.countryKey === countryID)
-    .map((countryItem) => countryItem.nativeName);
+    .filter(countryItem => countryItem.countryKey === countryID)
+    .map(countryItem => countryItem.nativeName);
 
   let countryNativeName;
   if (countryNative[0]) {
@@ -58,8 +58,7 @@ export function CountryDetail() {
     <div className="container text-white">
       <button
         className="w-[135px] h-10 mt-[30px] mb-20 bg-[#26323D] shadow-lg rounded"
-        onClick={() => navigateBack(-1)}
-      >
+        onClick={() => navigateBack(-1)}>
         Back
       </button>
       <div className="max-w-7xl mx-auto">

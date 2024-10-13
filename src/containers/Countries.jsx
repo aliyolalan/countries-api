@@ -22,13 +22,13 @@ export default function Countries() {
   }, []);
 
   // Search input operations...
-  const onSearchChangeHandler = (event) => {
+  const onSearchChangeHandler = event => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
 
   useEffect(() => {
-    const newFilteredCountries = countryData.filter((countryItem) => {
+    const newFilteredCountries = countryData.filter(countryItem => {
       return countryItem.countryName.toLocaleLowerCase().includes(searchField);
     });
 
@@ -36,13 +36,13 @@ export default function Countries() {
   }, [countryData, searchField]);
 
   // Select region option operations...
-  const onSelectChangeHandler = (event) => {
+  const onSelectChangeHandler = event => {
     const selectedCountryRegion = event.target.value;
     setSelectedRegion(selectedCountryRegion);
   };
 
   useEffect(() => {
-    const newSelectedCountryRegion = filteredCountry.filter((countryItem) => {
+    const newSelectedCountryRegion = filteredCountry.filter(countryItem => {
       return countryItem.countryRegion.includes(selectedRegion);
     });
 
